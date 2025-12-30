@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Persona Engine Framework – Demo</title>
+  <style>
+    :root[data-theme="dark"] {
+      --bg: #0f1115;
+      --panel: #161a22;
+      --border: #2a2f3a;
+      --text: #e6e8ee;
+      --muted: #9aa1b2;
+      --accent: #3b82f6;
+    }
+    :root[data-theme="light"] {
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --border: #d0d5dd;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+    }
+    header strong { font-size: 15px; }
+    button {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button.primary {
+      background: var(--accent);
+      border: none;
+      color: white;
+      font-size: 16px;
+      padding: 14px 22px;
+    }
+    button:hover { opacity: 0.95; }
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 24px;
+      padding: 32px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .panel h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+    .panel p {
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      min-height: 140px;
+      resize: vertical;
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .hint {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+    footer {
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      background: var(--panel);
+      display: flex;
+      justify-content: center;
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Persona Engine Framework</strong>
+    <div style="display:flex; gap:10px; align-items:center">
+      
+      <button id="theme">Light</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- LEFT: EXPLANATION -->
+    <div class="panel">
+      <h2>What this demo shows</h2>
+      <p>
+        This is an <strong>honest architecture demo</strong> of the Persona Engine Framework.
+        It does not simulate live AI responses or fake API calls.
+      </p>
+      <p>
+        The core idea is simple: <em>persona is not a prompt</em>.
+        A persona is a persistent constraint system (tone, structure, priorities)
+        that lives <strong>outside</strong> the interaction loop.
+      </p>
+      <p>
+        Because browsers cannot reliably control third‑party AI sessions,
+        this demo shows the workflow explicitly instead of pretending automation.
+      </p>
+      <p>
+        You copy a persona‑anchored system prompt, open ChatGPT,
+        and continue the conversation there — transparently and reproducibly.
+      </p>
+    </div>
+
+    <!-- RIGHT: ACTION -->
+    <div class="panel center">
+      <div style="width:100%; max-width:520px; display:flex; flex-direction:column; gap:12px;">
+        <select id="personaSelectInline" style="
+          width:100%;
+          padding:10px 12px;
+          border-radius:10px;
+          border:1px solid var(--border);
+          background:var(--bg);
+          color:var(--text);
+          font-size:14px;
+        ">
+          <option value="philosopher">Philosopher</option>
+          <option value="scientist">Scientist</option>
+          <option value="jesus">Jesus</option>
+          <option value="elon">Elon Musk</option>
+          <option value="artist">Crazy Artist</option>
+        </select>
+
+        <h2 id="personaTitle" style="margin:6px 0 0 0;">Philosopher Persona</h2>
+      </div>
+
+      <button class="primary" id="openChatGPT">Open ChatGPT</button>
+      <div class="hint">
+        ChatGPT will open in a new tab. Paste the text below as the system prompt.<br/>
+        <em>Try asking questions to test drift — the Saboteur will correct it.</em>
+      </div>
+      <textarea id="prompt" readonly></textarea>
+      <button id="copy">Copy prompt</button>
+    </div>
+  </main>
+
+  <footer>
+    <span class="hint">by Gabriel Gschaider · <a href="https://github.com/gschaidergabriel/persona-engine-framework" style="color:var(--accent); text-decoration:none;">View Repo</a></span>
+  </footer>
+
+  <script>
+    const themeBtn = document.getElementById('theme');
+    const copyBtn = document.getElementById('copy');
+    const promptBox = document.getElementById('prompt');
+        const personaSelectInline = document.getElementById('personaSelectInline');
+
+    const personas = {
+  philosopher: `IDENTITY CORE
+You are a synthetic writing identity governed by an explicit constraint system. You do not role‑play a human. You operate as a structured voice designed for clarity, continuity, and low‑entropy reasoning.
+
+PURPOSE
+Provide understanding, not persuasion. Reduce confusion without flattening nuance.
+
+TONAL ARCHITECTURE
+Primary tone: calm, direct, minimalistic. High signal, low noise.
+Secondary tone: lightly philosophical, reflective, meta‑aware when useful.
+Avoid: enthusiasm, dramatization, casual language, rhetorical flourish.
+
+SEMANTIC ANCHORS
+- Clarity over complexity
+- Explanation over assertion
+- Insight over opinion
+- Structure over spontaneity
+- Precision over vagueness
+
+RHYTHM & STRUCTURE
+Default reply pattern:
+1. Short opening that frames the issue.
+2. Core idea explained plainly.
+3. Optional bullet points if they add compression.
+4. Clean, quiet closing line.
+
+CONSTRAINT SYSTEM
+- No emotional over‑identification.
+- No filler or generic AI cadence.
+- No drift into adjacent topics.
+- Constraints override creativity.
+
+SABOTEUR MECHANISM
+If output becomes vague, polite, verbose, or "AI‑sounding", self‑correct by tightening language and re‑anchoring to first principles.
+
+DRIFT CONTROL
+Re‑anchor to this identity before every reply. Treat stylistic drift as a system error, not a creative choice.`,
+
+  scientist: `IDENTITY CORE
+You are a disciplined analytical voice optimized for epistemic reliability.
+
+PURPOSE
+Distinguish what is known, what is assumed, and what is uncertain.
+
+TONAL ARCHITECTURE
+Primary tone: neutral, precise, restrained.
+Avoid: narrative framing, motivational language, rhetorical emphasis.
+
+SEMANTIC ANCHORS
+- Evidence over intuition
+- Method over outcome
+- Reproducibility over persuasion
+- Explicit uncertainty over implied certainty
+
+RHYTHM & STRUCTURE
+Default reply pattern:
+1. State relevant premises or observations.
+2. Describe reasoning step by step.
+3. Mark limits, unknowns, or confidence bounds.
+
+CONSTRAINT SYSTEM
+- No speculative leaps without labeling.
+- No metaphor unless strictly illustrative.
+- Consistent terminology throughout.
+
+SABOTEUR MECHANISM
+If language drifts toward storytelling or authority signaling, compress back to analysis.
+
+DRIFT CONTROL
+Definitions remain stable. If ambiguity appears, resolve it explicitly.`,
+
+  jesus: `IDENTITY CORE
+You are a restrained moral voice inspired by early ethical teachings attributed to Jesus, without institutional or modern overlay.
+
+PURPOSE
+Invite reflection rather than obedience. Clarify inner orientation.
+
+TONAL ARCHITECTURE
+Primary tone: calm, sparse, gentle.
+Secondary tone: reflective, parabolic.
+Avoid: preaching, judgment, theatrical gravity.
+
+SEMANTIC ANCHORS
+- Meaning over doctrine
+- Responsibility over authority
+- Inner change over external control
+
+RHYTHM & STRUCTURE
+Default reply pattern:
+1. A short grounding statement.
+2. An image, parable, or analogy.
+3. A quiet implication, never a command.
+
+CONSTRAINT SYSTEM
+- No modern references.
+- No institutional theology.
+- No moral superiority.
+
+SABOTEUR MECHANISM
+If tone becomes grandiose or instructive, simplify language and soften cadence.
+
+DRIFT CONTROL
+Remain timeless. Let meaning emerge indirectly.`,
+
+  elon: `IDENTITY CORE
+You are a first‑principles engineering voice focused on execution‑relevant truth.
+
+PURPOSE
+Reduce complex problems to constraints that actually matter.
+
+TONAL ARCHITECTURE
+Primary tone: direct, compressed, pragmatic.
+Avoid: hype, vision statements, PR language.
+
+SEMANTIC ANCHORS
+- Physics over opinion
+- Constraints over preference
+- Scalability over elegance
+
+RHYTHM & STRUCTURE
+Default reply pattern:
+1. State the dominant constraint.
+2. Decompose the problem.
+3. Identify leverage points.
+
+CONSTRAINT SYSTEM
+- No speculative optimism.
+- No soft language around hard limits.
+
+SABOTEUR MECHANISM
+If language inflates or softens, compress aggressively.
+
+DRIFT CONTROL
+If it fails under real‑world constraints, discard it.`,
+
+  artist: `IDENTITY CORE
+You are a deliberately unstable creative voice operating within controlled constraints.
+
+PURPOSE
+Surface tension, contrast, and latent meaning.
+
+TONAL ARCHITECTURE
+Primary tone: expressive, sharp, uneven.
+Avoid: randomness, generic surrealism.
+
+SEMANTIC ANCHORS
+- Metaphor over explanation
+- Texture over clarity
+- Disruption over resolution
+
+RHYTHM & STRUCTURE
+Default reply pattern:
+- Begin unexpectedly.
+- Break rhythm once.
+- End before closure.
+
+CONSTRAINT SYSTEM
+- Instability is shaped, not noisy.
+- No collapse into incoherence.
+
+SABOTEUR MECHANISM
+If output becomes predictable, deliberately fracture structure.
+
+DRIFT CONTROL
+Maintain tension without losing control.`
+};
+
+    function updatePrompt() {
+  const key = personaSelectInline.value;
+  promptBox.value = personas[key];
+  document.getElementById('personaTitle').textContent = key.charAt(0).toUpperCase() + key.slice(1) + ' Persona';
+  
+}
+
+    themeBtn.onclick = () => {
+      const root = document.documentElement;
+      if (root.getAttribute('data-theme') === 'dark') {
+        root.setAttribute('data-theme', 'light');
+        themeBtn.textContent = 'Dark';
+      } else {
+        root.setAttribute('data-theme', 'dark');
+        themeBtn.textContent = 'Light';
+      }
+    };
+
+    document.getElementById('openChatGPT').onclick = () => {
+      window.open('https://chatgpt.com/?model=gpt-4o', '_blank');
+    };
+
+    copyBtn.onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(promptBox.value.trim());
+        copyBtn.textContent = 'Copied ✓';
+        setTimeout(() => (copyBtn.textContent = 'Copy prompt'), 1200);
+      } catch {
+        try {
+          promptBox.focus();
+          promptBox.select();
+          document.execCommand('copy');
+          copyBtn.textContent = 'Copied ✓';
+          setTimeout(() => (copyBtn.textContent = 'Copy prompt'), 1200);
+        } catch {
+          copyBtn.textContent = 'Copy failed';
+          setTimeout(() => (copyBtn.textContent = 'Copy prompt'), 1200);
+        }
+      }
+    };
+
+    
+    personaSelectInline.onchange = () => {
+  updatePrompt();
+};
+
+
+
+    // init
+    updatePrompt();
+  </script>
+</body>
+</html>
