@@ -22,7 +22,8 @@ It is a controlled writing system.
 
 To set up the agent, you need:
 
-- The Writing Matrix  
+- The Writing Matrix
+- The World Model  
 - The Constraint System  
 - Semantic Anchors  
 - Drift-Control Rules  
