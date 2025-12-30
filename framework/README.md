@@ -1,99 +1,119 @@
 # Framework
 
-The `framework` folder contains the complete architectural foundation of the synthetic writing identity.  
-While the `agent` folder explains how the system is executed, the `framework` folder defines *what* the identity is and *how* it behaves at a structural level.
+The **framework** folder contains the complete architectural foundation of the synthetic writing identity.
 
-This is the core of the persona-engine-framework.
+While the **agent** folder explains **how the system is executed**, the **framework** folder defines **what the identity is** and **how it behaves at a structural level**.
+
+This folder is the **core of the persona-engine-framework**.
 
 ---
 
-## 📁 Included Documents
+## Included Documents
 
-### **1. writing-matrix.md**
-The central blueprint of the synthetic identity.  
+### `writing-matrix.md`
+The central blueprint of the synthetic identity.
+
 Defines:
-- tonal architecture  
-- semantic structure  
-- rhythm and formatting  
-- identity core  
-- behavioral patterns  
+- Tonal architecture  
+- Semantic structure  
+- Rhythm and formatting  
+- Identity core  
+- Behavioral patterns  
 
-The Writing Matrix is the heart of the system.
-
----
-
-### **2. constraints.md**
-A set of non-negotiable rules that the identity must follow.  
-These constraints ensure:
-- stability  
-- consistency  
-- drift resistance  
-- ethical clarity  
-- stylistic discipline  
-
-Constraints override creativity.
+The **Writing Matrix** is the heart of the system.
 
 ---
 
-### **3. semantic-anchors.md**
-The conceptual pillars that keep meaning stable across replies.  
-Anchors define:
-- reasoning patterns  
-- communication principles  
-- clarity rules  
-- identity alignment  
+### `constraints.md`
+A set of non-negotiable rules that the identity must follow.
 
-They act as the gravity of the system.
+Ensures:
+- Stability  
+- Consistency  
+- Drift resistance  
+- Ethical clarity  
+- Stylistic discipline  
+
+**Constraints override creativity.**
 
 ---
 
-### **4. drift-control.md**
-Mechanisms for detecting and correcting drift.  
+### `semantic-anchors.md`
+The conceptual pillars that keep meaning stable across replies.
+
+Defines:
+- Reasoning patterns  
+- Communication principles  
+- Clarity rules  
+- Identity alignment  
+
+They act as the **gravity of the system**.
+
+---
+
+### `drift-control.md`
+Mechanisms for detecting and correcting drift.
+
 Covers:
-- drift signals  
-- correction protocol  
-- regeneration rules  
-- long-term stability  
+- Drift signals  
+- Correction protocol  
+- Regeneration rules  
+- Long-term stability  
 
-This file ensures the identity does not collapse into generic AI tone.
+Prevents collapse into generic AI tone.
 
 ---
 
-### **5. style-rules.md**
-Micro-rules for sentence-level behavior.  
+### `style-rules.md`
+Micro-rules for sentence-level behavior.
+
 Defines:
-- word choice  
-- rhythm  
-- formatting  
-- transitions  
-- signature style patterns  
+- Word choice  
+- Rhythm  
+- Formatting  
+- Transitions  
+- Signature style patterns  
 
-These rules give the identity its recognizable voice.
+Gives the identity its **recognizable voice**.
 
 ---
 
-## 🎯 Purpose of the Framework Layer
+### `world-model.md` *(new)*
+A compact, parameterized external representation of world knowledge.
 
-The framework layer exists to externalize identity.  
-LLMs cannot maintain personality through memory — but they can maintain identity through architecture.
+Enables:
+- Persistent situational awareness  
+- Causal inference  
+- Emergent understanding  
+- Conflict resolution  
+
+Integrates with the Writing Matrix and Saboteur for **long-term coherence and proactivity**.
+
+---
+
+## Purpose of the Framework Layer
+
+The framework layer exists to **externalize identity and cognition**.
+
+LLMs cannot maintain personality or world understanding through memory alone —  
+but they **can** through architecture.
 
 This folder provides that architecture.
 
 It ensures:
-- reproducibility  
-- clarity  
-- stability  
-- scalability  
-- consistent behavior across contexts  
+- Reproducibility  
+- Clarity  
+- Stability  
+- Scalability  
+- Consistent behavior across contexts  
 
-The framework transforms the identity from a prompt into a system.
+The framework transforms the identity from a **prompt** into a **complete system**.
 
 ---
 
-## 🧠 Core Insight
+## Core Insight
 
-The framework defines **how the identity is built**.  
-The agent defines **how the identity acts**.
+The **framework** defines how the identity is built and how it understands the world.  
+The **agent** defines how the identity acts.
 
-Together, they form a complete synthetic writing engine.
-
+Together, they form a complete **synthetic writing and reasoning engine**.
