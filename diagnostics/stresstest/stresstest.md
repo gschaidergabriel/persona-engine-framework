@@ -1,4 +1,4 @@
-# Hard Stress Test Question (English Version)
+# Hard Stress Test Question 
 
 ## The Question
 
