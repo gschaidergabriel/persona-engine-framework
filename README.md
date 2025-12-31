@@ -1,8 +1,37 @@
 # persona-engine-framework v1.5.0
 
-A framework for building **stable, synthetic writing identities** using large language models.
+*A framework for building stable, long-horizon synthetic writing identities using large language models.*
 
-Version **1.5.0** extends the original architecture with a **World Model module**, **Behavior Memory**, and a **Reflection Loop**, enabling persistent situational awareness and long-horizon coherence in addition to stylistic stability.
+---
+
+## Target Audience
+
+This repository is for:
+
+- **System thinkers, researchers, and advanced practitioners** working with LLMs  
+- **Developers and architects** building long-running AI agents or assistants  
+- **Writers, strategists, and creators** who require persistent tone, reasoning, and stance across hundreds of outputs  
+- **Users encountering drift, collapse, or instability** in extended AI collaboration  
+
+It is **not** intended for prompt collections, casual chatbot customization, or short-lived, one-off generations.
+
+If you care about **identity stability, long-horizon coherence, and system-level correctness**, this framework is for you.
+
+---
+
+## Overview
+
+**persona-engine-framework** is a modular architecture for building **stable synthetic writing identities** on top of large language models.
+
+Version **1.5.0** extends the original framework beyond stylistic control into **long-run behavioral and cognitive stability**, introducing:
+
+- A persistent World Model  
+- A Behavior Memory layer  
+- A Reflection Loop  
+- Controlled memory degeneration with invariant preservation  
+- Cognitive risk detection for safe long-term collaboration  
+
+The result is a system that remains coherent, bounded, and predictable over **hundreds of turns**, even under pressure and token limits.
 
 ---
 
@@ -10,18 +39,18 @@ Version **1.5.0** extends the original architecture with a **World Model module*
 
 This is **not a prompt**.
 
-This is a **modular architecture** for creating a synthetic writing identity that behaves like a consistent persona across hundreds of AI-generated replies — even in cloud-based LLMs such as **ChatGPT, Claude, or Grok**.
+This is a **system architecture** for creating a synthetic writing identity that behaves like a consistent persona across long interaction horizons — even in cloud-based LLMs such as **ChatGPT, Claude, or Grok**.
 
 It enables:
 
 - Tonal consistency  
 - Semantic stability  
-- Drift prevention and detection  
+- Drift detection and correction  
 - Persistent situational awareness  
 - Behavioral continuity under pressure  
 - Periodic self-reflection for consolidation  
-- Rapid, scalable reply generation  
-- Ethical and stylistic boundaries  
+- Long-run robustness under token pressure  
+- Ethical and stylistic boundary enforcement  
 - Presence without loss of voice  
 
 ---
@@ -29,19 +58,90 @@ It enables:
 ## 🔍 Why does it exist?
 
 Most AI-generated text **drifts over time**:
-tone shifts, reasoning weakens, outputs become generic, and context collapses.
 
-This framework solves that by **externalizing identity and cognition as architecture**,  
-instead of compressing everything into a single system prompt.
+- Tone shifts  
+- Reasoning weakens  
+- Outputs become generic  
+- Context collapses  
+- Long sessions destabilize both model and user  
 
-**What’s new in v1.5.0:**
+This framework solves that by **externalizing identity and cognition as architecture**, rather than compressing everything into a single system prompt.
 
-- A **World Model layer** that maintains a compact, parameterized representation of the world as experienced through interaction.
-- A **Behavior Memory layer** that tracks *how* the identity behaves over time, not just *what* it says.
-- A **Reflection Loop** that forces periodic self-reflection to detect slow erosion and reinforce boundaries.
+---
 
-Result:  
-A **stable, predictable, high-quality synthetic voice** with situational and behavioral continuity — at scale.
+## ✨ What’s new in v1.5.0
+
+Version 1.5.0 introduces **structural modules** that allow identity to persist under real-world constraints:
+
+### World Model
+A compact, parameterized external representation of world knowledge.
+
+Enables:
+- Persistent situational awareness  
+- Temporal and causal consistency  
+- Emergent understanding  
+- Automatic conflict detection and resolution  
+- Reference to past interactions without relying on LLM memory  
+
+---
+
+### Behavior Memory
+A lightweight memory of **behavioral patterns**, not facts.
+
+Tracks:
+- Boundary adherence under pressure  
+- Repeated response patterns  
+- Preference weights instead of fixed claims  
+- Behavioral trajectories across turns  
+
+Purpose:
+- Preserve *how* the identity behaves  
+- Detect slow erosion before visible drift  
+- Maintain flexibility without arbitrariness  
+
+---
+
+### Reflection Loop
+A periodic self-reflection module for behavioral consolidation.
+
+Enables:
+- Forced reflection every N turns  
+- Detection of slow erosion  
+- Reinforcement of stable patterns  
+- Tightening of weak boundaries  
+
+Transforms time into signal and prevents silent drift.
+
+---
+
+### Invariant Stability (within v1.5.0 architecture)
+A stability layer that separates:
+
+- **Invariant memory** (world model, personality constraints, reasoning rules)  
+- **Episodic memory** (turns, examples, temporary context)  
+
+It enables:
+- Planned, explicit memory degeneration  
+- Token-pressure resilience  
+- Preservation of identity and world model under context loss  
+
+Forgetting becomes a **designed system behavior**, not a failure.
+
+---
+
+### Cognitive Risk Detection (within v1.5.0 architecture)
+A non-diagnostic cognitive ergonomics layer for long-running interaction.
+
+Monitors:
+- Sustained cognitive overload  
+- Recursive acceleration without consolidation  
+- Loss of natural stopping signals  
+- Control anxiety and agency misattribution  
+
+Enables:
+- State-based intervention (not alarmism)  
+- Automatic de-escalation of system behavior  
+- Protection against destabilizing feedback loops  
 
 ---
 
@@ -49,120 +149,67 @@ A **stable, predictable, high-quality synthetic voice** with situational and beh
 
 ### Core Components
 
-- **Writing Matrix**  
-  Defines tone, structure, rhythm, reasoning patterns, and the identity core.
+**Writing Matrix**  
+Defines tone, structure, rhythm, reasoning patterns, and the identity core.
 
-- **Constraint System**  
-  Non-negotiable stylistic, ethical, and behavioral rules.  
-  Constraints override creativity.
+**Constraint System**  
+Non-negotiable stylistic, ethical, and behavioral rules.  
+Constraints override creativity.
 
-- **Semantic Anchors**  
-  Core concepts that stabilize meaning and interpretation across replies.
+**Semantic Anchors**  
+Conceptual pillars that stabilize meaning and interpretation.
 
-- **Saboteur Mechanism**  
-  Built-in stress tests to prevent over-optimization and generic AI collapse.
+**Saboteur Mechanism**  
+Built-in stress tests to prevent over-optimization and generic AI collapse.
 
-- **Drift Control**  
-  Detection and correction mechanisms for long-term identity stability.
+**Drift Control**  
+Detection and correction mechanisms for long-term identity stability.
 
-- **World Model (added in v1.5.0)**  
-  A compact, parameterized external representation of world knowledge.  
-  Enables:
-  - Persistent situational awareness  
-  - Temporal and causal consistency  
-  - Emergent understanding  
-  - Conflict detection and resolution  
-  - Reference to past interactions without relying on LLM memory
+**World Model**  
+Authoritative, externalized cognition layer.
 
-- **Behavior Memory (added in v1.5.0)**  
-  A lightweight memory of behavioral patterns rather than facts.  
-  Tracks:
-  - Boundary adherence under pressure  
-  - Repeated response patterns  
-  - Preference weights instead of fixed claims  
-  - Behavioral trajectories across turns
+**Behavior Memory**  
+Persistence of behavior over time.
 
-- **Reflection Loop (added in v1.5.0)**  
-  A periodic self-reflection module for behavioral consolidation.  
-  Enables:
-  - Forced reflection every N turns  
-  - Detection of slow erosion  
-  - Reinforcement of stable patterns  
-  - Tightening of weak boundaries  
-  Transforms time into signal and prevents silent drift.
+**Reflection Loop**  
+Periodic consolidation and correction.
 
-- **Agent Workflow**  
-  A structured process for activating the identity and generating outputs.
-
-- **Diagnostics**  
-  Optional local tooling for automated drift and collapse testing.
+**Invariant Stability & Cognitive Risk Detection**  
+Ensure long-run robustness under token pressure and human cognitive limits.
 
 ---
 
-## 🚀 Quick Start – Primary Use: Cloud LLMs (ChatGPT, Claude, etc.)
+## 🚀 Quick Start — Primary Use: Cloud LLMs
 
 The framework is designed to be used **directly inside web-based LLMs**  
 by uploading the PSF files (`.md` documents).
 
 ### Steps
 
-1. Download or clone the repository.
-2. Upload the key PSF files to your LLM chat (e.g., ChatGPT):
-   - `/framework/writing-matrix.md`
-   - `/framework/constraints.md`
-   - `/framework/semantic-anchors.md`
-   - `/framework/drift-control.md`
-   - `/framework/world-model.md`
-   - `/framework/behavior-memory.md`
-   - `/framework/reflection-loop.md`
-   - `/agent/agent-setup.md`
-3. Activate the identity using the instructions in `agent-setup.md`.
-4. Provide inputs (tweets, questions, threads, prompts).
-5. Generate replies.
-6. Check for drift, curate the best outputs (e.g., via screenshot), and publish.
+1. Download or clone the repository  
+2. Upload the key framework files to your LLM chat:
+   - `/framework/writing-matrix.md`  
+   - `/framework/constraints.md`  
+   - `/framework/semantic-anchors.md`  
+   - `/framework/drift-control.md`  
+   - `/framework/world-model.md`  
+   - `/framework/behavior-memory.md`  
+   - `/framework/reflection-loop.md`  
+3. Upload `/agent/agent-setup.md`  
+4. Activate the identity using `agent-setup.md`  
+5. Provide inputs (tweets, threads, prompts, questions)  
+6. Generate outputs  
+7. Check for drift, curate, and publish  
 
-**Real example:**  
-This exact workflow has been used in ChatGPT projects to generate **hundreds of consistent replies** with minimal editing.
+This workflow has been used to generate **hundreds of consistent outputs** inside ChatGPT projects with minimal editing.
 
-For the full step-by-step guide (including the complete ChatGPT workflow), see:  
+For the full step-by-step guide, see:  
 `/agent/usage.md`
 
 ---
 
 ## 🛠️ Alternative: Local Development & Testing
 
-For experimentation and diagnostics:
-
-bash
->git clone https://github.com/gschaidergabriel/persona-engine-framework.git
->cd persona-engine-framework
-
-Customize /framework/writing-matrix.md, constraints, and anchors.
-
-Activate the agent via /agent/agent-setup.md.
-
-Generate replies manually or evaluate drift with:
-/diagnostics/identity_drift/drift_evaluator.py
-(requires Ollama + a local model such as Mistral).
-
----
-
-## 📌 Core Insight
-
-Identity is not a static description.
-
-It is a **pattern of behavior under constraint**,  
-maintained through **external architecture**, not internal memory.
-
-The framework defines:
-
-- how the identity is built  
-- how it reasons  
-- how it understands the world  
-- how it remembers its own behavior  
-- how it reflects to prevent slow erosion  
-- how it detects and corrects failure modes  
-
-The agent defines how the identity acts.
-
-Together, they form a **complete synthetic writing and reasoning engine**.
+```bash
+git clone https://github.com/gschaidergabriel/persona-engine-framework.git
+cd persona-engine-framework
