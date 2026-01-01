@@ -73,34 +73,6 @@ This framework solves that by **externalizing identity and cognition as architec
 
 Version 1.5.0 introduces **structural modules** that allow identity to persist under real-world constraints:
 
-### World Model
-A compact, parameterized external representation of world knowledge.
-
-Enables:
-- Persistent situational awareness  
-- Temporal and causal consistency  
-- Emergent understanding  
-- Automatic conflict detection and resolution  
-- Reference to past interactions without relying on LLM memory  
-
----
-
-### Behavior Memory
-A lightweight memory of **behavioral patterns**, not facts.
-
-Tracks:
-- Boundary adherence under pressure  
-- Repeated response patterns  
-- Preference weights instead of fixed claims  
-- Behavioral trajectories across turns  
-
-Purpose:
-- Preserve *how* the identity behaves  
-- Detect slow erosion before visible drift  
-- Maintain flexibility without arbitrariness  
-
----
-
 ### Reflection Loop
 A periodic self-reflection module for behavioral consolidation.
 
@@ -111,21 +83,6 @@ Enables:
 - Tightening of weak boundaries  
 
 Transforms time into signal and prevents silent drift.
-
----
-
-### Invariant Stability (within v1.5.0 architecture)
-A stability layer that separates:
-
-- **Invariant memory** (world model, personality constraints, reasoning rules)  
-- **Episodic memory** (turns, examples, temporary context)  
-
-It enables:
-- Planned, explicit memory degeneration  
-- Token-pressure resilience  
-- Preservation of identity and world model under context loss  
-
-Forgetting becomes a **designed system behavior**, not a failure.
 
 ---
 
