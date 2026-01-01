@@ -119,12 +119,6 @@ Built-in stress tests to prevent over-optimization and generic AI collapse.
 **Drift Control**  
 Detection and correction mechanisms for long-term identity stability.
 
-**World Model**  
-Authoritative, externalized cognition layer.
-
-**Behavior Memory**  
-Persistence of behavior over time.
-
 **Reflection Loop**  
 Periodic consolidation and correction.
 
