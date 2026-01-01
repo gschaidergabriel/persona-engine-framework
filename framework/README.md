@@ -79,37 +79,6 @@ Gives the identity its recognizable voice.
 
 ---
 
-### `world-model.md` *(added in v1.5.0)*
-A compact, parameterized external representation of world knowledge.
-
-Enables:
-- Persistent situational awareness  
-- Temporal and causal consistency  
-- Emergent understanding  
-- Automatic conflict resolution  
-
-Integrates with the Writing Matrix, Drift Control, and Saboteur to keep reasoning coherent over long horizons.
-
----
-
-### `behavior-memory.md` *(added in v1.5.0)*
-A lightweight behavioral memory layer focused on **patterns of action**, not facts.
-
-Stores:
-- Repeated response patterns  
-- Boundary adherence under pressure  
-- Preference weights instead of fixed claims  
-- Behavioral trajectories over time  
-
-Purpose:
-- Preserve **how** the identity behaves, not what it knows  
-- Detect slow erosion before stylistic drift becomes visible  
-- Reinforce consistent behavior across similar situations  
-
-Behavior Memory captures **consistency in motion**, allowing identity to remain flexible without becoming arbitrary.
-
----
-
 ### `reflection-loop.md` *(added in v1.5.0)*
 A periodic self-reflection module for behavioral consolidation.
 
