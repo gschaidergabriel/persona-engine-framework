@@ -41,8 +41,6 @@ They already exist in the repository.
 - `semantic-anchors.md`
 - `style-rules.md`
 - `drift-control.md`
-- `world-model.md`
-- `behavior-memory.md`
 - `reflection-loop.md`
 
 ### Agent Files
@@ -59,13 +57,13 @@ They already exist in the repository.
 - memory features  
 - special models  
 
-Everything runs inside standard ChatGPT.
+Everything runs inside ChatGPT+.
 
 ---
 
 ## Step 1 — Upload the Files into ChatGPT
 
-1. Open a **ChatGPT Project** (or a fresh chat).
+1. Open a **ChatGPT Project** .
 2. Upload **all PSF files** listed above.
 
 That’s it.
@@ -99,6 +97,9 @@ This does **one thing only**:
 
 You do this **once per chat**.
 
+**First-time setup:** In the project chat, explicitly instruct ChatGPT to read and analyze *all* project files in the project folder (the PDFs), and to treat them as binding rules and constraints for synthesizing every future response within this project.
+
+
 ---
 
 ## What Activation Initializes (Automatically)
@@ -117,8 +118,7 @@ Internally, activation loads and connects:
 - **Cognitive safety under long sessions** → Cognitive Risk Detection (implicit)  
 - **Internal stress testing** → Saboteur  
 
-You do not trigger these manually.  
-They are **mandatory and always active**.
+**First-time setup:** In the project chat, explicitly instruct ChatGPT to read and analyze *all* project files in the project folder (the PDFs), and to treat them as binding rules and constraints for synthesizing every future response within this project.
 
 ---
 
@@ -154,13 +154,12 @@ For **every input**, the agent executes the full pipeline:
    - Constraints
    - Style Rules
    - Semantic Anchors
-6. Applies **Behavior Memory** (pattern consistency)
-7. Runs **Reflection Loop** when scheduled
-8. Checks **Drift Control**
-9. Applies **Invariant Stability** if context pressure rises
-10. Monitors **Cognitive Risk Detection**
-11. Runs **Saboteur** stress checks
-12. Produces output
+6. Runs **Reflection Loop** when scheduled
+7. Checks **Drift Control**
+8. Applies **Invariant Stability** if context pressure rises
+9. Monitors **Cognitive Risk Detection**
+10. Runs **Saboteur** stress checks
+11. Produces output
 
 You do not manage this.  
 You only provide input.
