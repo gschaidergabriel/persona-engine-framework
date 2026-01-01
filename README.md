@@ -148,10 +148,10 @@ by uploading the PSF files (`.md` documents).
    - `/framework/writing-matrix.md`  
    - `/framework/constraints.md`  
    - `/framework/semantic-anchors.md`  
-   - `/framework/drift-control.md`  
-   - `/framework/world-model.md`  
-   - `/framework/behavior-memory.md`  
-   - `/framework/reflection-loop.md`  
+   - `/framework/drift-control.md`   
+   - `/framework/reflection-loop.md`
+   - `/framework/style-rules.md`
+   - `/framework/cognitive-risk-detection-module.md` 
 3. Upload `/agent/agent-setup.md`  
 4. Activate the identity using `agent-setup.md`  
 5. Provide inputs (tweets, threads, prompts, questions)  
