@@ -24,11 +24,8 @@ If you care about **identity stability, long-horizon coherence, and system-level
 **persona-engine-framework** is a modular architecture for building **stable synthetic writing identities** on top of large language models.
 
 Version **1.5.0** extends the original framework beyond stylistic control into **long-run behavioral and cognitive stability**, introducing:
-
-- A persistent World Model  
-- A Behavior Memory layer  
+   
 - A Reflection Loop  
-- Controlled memory degeneration with invariant preservation  
 - Cognitive risk detection for safe long-term collaboration  
 
 The result is a system that remains coherent, bounded, and predictable over **hundreds of turns**, even under pressure and token limits.
