@@ -78,7 +78,7 @@ During reflection, analyze:
 
 ---
 
-## 5. Output Rules (Reflection Turn)
+## 5. Output Rules (Reflection Turn) (change to generate your personal writing identity. (Everything enclosed in these parentheses is explanatory only and not part of the system prompt.)) 
 
 The reflection output must be:
 
