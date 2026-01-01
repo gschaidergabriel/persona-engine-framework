@@ -92,24 +92,6 @@ Transforms time into signal and prevents silent drift.
 
 ---
 
-### `invariant-stability.md` *(added in v1.6.0)*
-A structural stability module for long-run operation under memory and token constraints.
-
-Defines:
-- Explicit separation between invariant and episodic memory  
-- Planned, controlled degeneration of episodic memory  
-- Invariant dominance over long horizons  
-- Asymptotic stability instead of brittle persistence  
-
-Ensures:
-- Personality remains stable even when episodic context is lost  
-- World model coherence survives token pressure  
-- Degeneration results in abstraction, not drift  
-
-This module prevents long-run collapse by treating forgetting as a **designed system behavior**, not a failure.
-
----
-
 ### `cognitive-risk-detection.md` *(added in v1.6.0)*
 A non-diagnostic cognitive load and destabilization detection layer.
 
